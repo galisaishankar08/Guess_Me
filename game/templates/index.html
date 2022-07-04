@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet"><!DOCTYPE html>
+    <title>Home</title>
+</head>
+<body style="background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container container">
+                <input type="checkbox" name="" id="">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="profile">Profile</a></li>
+                    <li><a href="signin">Logout</a></li>
+                </ul>
+                <a href="http://127.0.0.1:8000/"><h1 class="logo">GSS</h1></a>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="card_easy">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0ODY2MDgxOQ&ixlib=rb-1.2.1&q=85">
+                <div class="text">
+                    <a href="rookie"><h1>Rookie</h1> </a>
+                </div>
+            </div>
+        </div>
+        <div class="card_medium">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1510797215324-95aa89f43c33?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0ODY2MDg0NA&ixlib=rb-1.2.1&q=85">
+                <div class="text">
+                    <a href="intermediate"><h1>Intermediate</h1> </a>
+                </div>
+            </div>
+        </div>
+        <div class="card_hard">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1473081556163-2a17de81fc97?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0ODY2MDg3NQ&ixlib=rb-1.2.1&q=85">
+                <div class="text">
+                    <a href="expert"><h1>Expert</h1> </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

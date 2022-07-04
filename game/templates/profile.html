@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet"><!DOCTYPE html>
+   <title>Profile</title>
+</head>
+<body style="background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container container">
+                <input type="checkbox" name="" id="">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="profile">Profile</a></li>
+                    <li><a href="signin">Logout</a></li>
+                </ul>
+                <a href="http://127.0.0.1:8000/"><h1 class="logo">GSS</h1></a>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div style="
+            margin : 200px 0px 0px 400px;
+            position: absolute;
+            height: 49vh;
+            width: 40%;
+            border: 5px solid black;
+            padding: 50px;
+
+            border-radius: 10%;
+
+        ">
+            <h1>Name : {{ uname }}</h1> <br>
+            <h1>Email : {{ email }}</h1>
+        </div>
+    </section>
+
+</body>
+</html>

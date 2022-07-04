@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+{% load static %}
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet"><!DOCTYPE html>
+<title>Sign Up</title>
+</head>
+<body >
+	 <div class="login-grid">
+        <form method="post">
+            {% csrf_token %}
+            <label class ="signuplabel">Sign Up</label> <br>
+
+            <input type="text" placeholder="UserName " id="uname" name="uname" required> <br>
+
+            <input type="text" placeholder="Email " id="email" name="email" required> <br>
+
+            <input type="password" placeholder="Password" id="password" name="pwd" required> <br>
+
+            <a class="forgot" href="">forgot password</a> <br>
+
+            <button class="signup" type="Submit" name="save">Sign Up</button>
+
+             <p>Account Already  Exists. <a href="http://127.0.0.1:8000/signin"> Login here</a> </p>
+
+        </form>
+    </div>
+</body>
+</html>
