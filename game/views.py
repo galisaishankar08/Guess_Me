@@ -22,7 +22,6 @@ def signin(request):
 
     print(username, password)
     data = conn.execute('select * from game_signin').fetchall()
-    print(data)
     flag = False
     for i in range(len(data)):
         if username == data[i][1] and password == data[i][2]:
@@ -52,7 +51,6 @@ def signup(request):
         conn.commit()
         return redirect('http://127.0.0.1:8000/signin')
 
-    print(username, email, password)
     return render(request, 'signup.html')
 
 
