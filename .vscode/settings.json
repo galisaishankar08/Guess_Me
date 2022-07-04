@@ -1,4 +1,0 @@
-{
-  "appService.defaultWebAppToDeploy": "/subscriptions/6d59aaa1-29d0-42b5-8239-b1ec07e0e339/microsoft.web/sites/subscriptions/6d59aaa1-29d0-42b5-8239-b1ec07e0e339/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/guess-game",
-  "appService.deploySubpath": "."
-}
