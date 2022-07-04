@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib import messages
 import sqlite3
+import random
 
 from django.template.response import TemplateResponse
 
 conn = sqlite3.connect('./db.sqlite3', check_same_thread=False)
 
-import random
 
 username = ''
 password = ''
@@ -16,7 +15,6 @@ email = ''
 
 def signin(request):
     global username, password, email
-    user_id = 0
 
     if request.method == 'POST':
         username = request.POST['uname']
@@ -74,7 +72,7 @@ def profile(request):
     args['uname'] = username
     try:
         args['email'] = email[0][0]
-    except:
+    except Exception:
         args['email'] = ''
     return TemplateResponse(request, 'profile.html', args)
 
@@ -190,7 +188,6 @@ def intermediate(request):
 def expert(request):
     number = random.randint(1, 100)
     guess = 0
-    number_of_guesses = 0
     print(number)
     if request.method == 'POST':
         guess = int(request.POST.get('guess'))
