@@ -1,0 +1,1 @@
+web: gunicorn guessme.wsgi --log-file -

@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&8hwyu&7g_6h$2@=!l^pg#n%%y^x75_s_ibb(_eunh7xk*t*hm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gss-guess-me.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
