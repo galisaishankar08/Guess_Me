@@ -27,10 +27,9 @@ def signin(request):
         else:
             flag = False
     if flag:
-        return redirect('http://127.0.0.1:8000')
+        return redirect('')
     else:
         return render(request, 'signin.html')
-    return render(request, 'signin.html')
 
 
 def signup(request):
@@ -47,8 +46,7 @@ def signup(request):
         cur.execute(sql1)
         cur.execute(sql2)
         conn.commit()
-        return redirect('http://127.0.0.1:8000/signin')
-
+        return redirect('signin')
     return render(request, 'signup.html')
 
 
