@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 import sqlite3
 import random
@@ -13,6 +14,7 @@ password = ''
 email = ''
 
 
+@csrf_exempt
 def signin(request):
     global username, password, email
 
@@ -32,6 +34,7 @@ def signin(request):
         return render(request, 'signin.html')
 
 
+@csrf_exempt
 def signup(request):
     global username, password, email
     if request.method == 'POST':
@@ -58,6 +61,7 @@ def about(request):
     return render(request, 'about.html')
 
 
+@csrf_exempt
 def profile(request):
     args = {}
     global username, password, email
@@ -70,6 +74,7 @@ def profile(request):
     return TemplateResponse(request, 'profile.html', args)
 
 
+@csrf_exempt
 def logout(request):
     return render(request, 'signin.html')
 
@@ -79,6 +84,7 @@ turn = 0
 success = False
 
 
+@csrf_exempt
 def rookie(request):
     global secret_number, turn, success
     context = {}
@@ -129,6 +135,7 @@ def rookie(request):
     return render(request, 'rookie.html')
 
 
+@csrf_exempt
 def intermediate(request):
     global secret_number, turn, success
     context = {}
@@ -176,6 +183,7 @@ def intermediate(request):
     return render(request, 'intermediate.html')
 
 
+@csrf_exempt
 def expert(request):
     number = random.randint(1, 100)
     guess = 0
