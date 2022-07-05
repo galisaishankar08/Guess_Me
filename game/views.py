@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 import sqlite3
 import random
@@ -14,7 +14,6 @@ password = ''
 email = ''
 
 
-@csrf_exempt
 def signin(request):
     global username, password, email
 
@@ -34,7 +33,6 @@ def signin(request):
         return render(request, 'signin.html')
 
 
-@csrf_exempt
 def signup(request):
     global username, password, email
     if request.method == 'POST':
@@ -61,7 +59,6 @@ def about(request):
     return render(request, 'about.html')
 
 
-@csrf_exempt
 def profile(request):
     args = {}
     global username, password, email
@@ -74,7 +71,6 @@ def profile(request):
     return TemplateResponse(request, 'profile.html', args)
 
 
-@csrf_exempt
 def logout(request):
     return render(request, 'signin.html')
 
@@ -84,7 +80,6 @@ turn = 0
 success = False
 
 
-@csrf_exempt
 def rookie(request):
     global secret_number, turn, success
     context = {}
@@ -117,14 +112,16 @@ def rookie(request):
     context['guessed_number'] = guessed_number
 
     if context['turn'] == 10:
-        messages.info(request, 'Game Over ')
+        messages.info(request, 'Game Over ❌')
         messages.info(request, 'Secret Number : ' + str(secret_number))
-        return redirect('rookie')
+        messages.info(request, 'Please try again...')
+        return HttpResponseRedirect(request.path_info)
 
     elif context['success']:
-        messages.info(request, 'Congratulations ')
+        messages.info(request, 'Congratulations 🎉')
         messages.info(request, 'Score : ' + str((10 - context['turn'] + 1)*10))
-        return redirect('rookie')
+        messages.info(request, 'Play again...')
+        return HttpResponseRedirect(request.path_info)
 
     else:
         messages.info(request, 'Guessed Number : ' + str(context['guessed_number']))
@@ -135,7 +132,6 @@ def rookie(request):
     return render(request, 'rookie.html')
 
 
-@csrf_exempt
 def intermediate(request):
     global secret_number, turn, success
     context = {}
@@ -166,14 +162,16 @@ def intermediate(request):
     context['guessed_number'] = guessed_number
 
     if context['turn'] == 5:
-        messages.info(request, 'Game Over ')
+        messages.info(request, 'Game Over ❌')
         messages.info(request, 'Secret Number : ' + str(secret_number))
-        return redirect('intermediate')
+        messages.info(request, 'Please try again...')
+        return HttpResponseRedirect(request.path_info)
 
     elif context['success']:
-        messages.info(request, 'Congratulations ')
+        messages.info(request, 'Congratulations 🎉')
         messages.info(request, 'Score : '+str((5 - context['turn'] + 1)*20))
-        return redirect('intermediate')
+        messages.info(request, 'Play again...')
+        return HttpResponseRedirect(request.path_info)
 
     else:
         messages.info(request, 'Guessed Number : ' + str(context['guessed_number']))
@@ -183,26 +181,21 @@ def intermediate(request):
     return render(request, 'intermediate.html')
 
 
-@csrf_exempt
 def expert(request):
     number = random.randint(1, 100)
     guess = 0
     print(number)
     if request.method == 'POST':
         guess = int(request.POST.get('guess'))
-        print(guess)
         if guess < number:
             messages.info(request, 'guess is low')
             messages.info(request, 'Guessed Number : ' + str(guess))
             messages.info(request, 'Secret Number : '+str(number))
-            print("guess is low")
         elif guess > number:
             messages.info(request, 'guess is high')
             messages.info(request, 'Guessed Number : ' + str(guess))
             messages.info(request, 'Secret Number : ' + str(number))
-            print("guess is high")
         else:
             messages.info(request, 'Congrats, You guessed it!')
             messages.info(request, 'Secret Number : ' + str(number))
-            print("Congrats, You guessed it!")
     return render(request, 'expert.html')
