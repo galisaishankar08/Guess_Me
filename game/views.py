@@ -119,12 +119,12 @@ def rookie(request):
     if context['turn'] == 10:
         messages.info(request, 'Game Over ')
         messages.info(request, 'Secret Number : ' + str(secret_number))
-        return redirect('http://127.0.0.1:8000/rookie')
+        return redirect('rookie')
 
     elif context['success']:
         messages.info(request, 'Congratulations ')
         messages.info(request, 'Score : ' + str((10 - context['turn'] + 1)*10))
-        return redirect('http://127.0.0.1:8000/rookie')
+        return redirect('rookie')
 
     else:
         messages.info(request, 'Guessed Number : ' + str(context['guessed_number']))
@@ -168,12 +168,12 @@ def intermediate(request):
     if context['turn'] == 5:
         messages.info(request, 'Game Over ')
         messages.info(request, 'Secret Number : ' + str(secret_number))
-        return redirect('http://127.0.0.1:8000/intermediate')
+        return redirect('intermediate')
 
     elif context['success']:
         messages.info(request, 'Congratulations ')
         messages.info(request, 'Score : '+str((5 - context['turn'] + 1)*20))
-        return redirect('http://127.0.0.1:8000/intermediate')
+        return redirect('intermediate')
 
     else:
         messages.info(request, 'Guessed Number : ' + str(context['guessed_number']))
