@@ -19,8 +19,6 @@ def signin(request):
     if request.method == 'POST':
         username = request.POST['uname']
         password = request.POST['pwd']
-
-    print(username, password)
     data = conn.execute('select * from game_signin').fetchall()
     flag = False
     for i in range(len(data)):
@@ -65,7 +63,6 @@ def about(request):
 def profile(request):
     args = {}
     global username, password, email
-    print('Profile :', username, email, password)
     email = conn.execute(f"select email from game_signup where username='{username}';").fetchall()
     args['uname'] = username
     try:
@@ -142,8 +139,6 @@ def intermediate(request):
 
     if request.method == 'POST' and request.POST.get('guess'):
         guessed_number = int(request.POST.get('guess'))
-        print(secret_number)
-        print(guessed_number)
         turn += 1
         if guessed_number == secret_number:
             success = True
