@@ -25,10 +25,11 @@ def signin(request):
     for i in range(len(data)):
         if username == data[i][1] and password == data[i][2]:
             flag = True
+            break
         else:
             flag = False
     if flag:
-        return redirect('')
+        return redirect('/')
     else:
         return render(request, 'signin.html')
 
@@ -47,7 +48,7 @@ def signup(request):
         cur.execute(sql1)
         cur.execute(sql2)
         conn.commit()
-        return redirect('signin')
+        return redirect('/signin')
     return render(request, 'signup.html')
 
 
@@ -72,7 +73,7 @@ def profile(request):
 
 
 def logout(request):
-    return render(request, 'signin.html')
+    return redirect('/signin')
 
 
 secret_number = random.randint(0, 100)
